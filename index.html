@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rakesh Nunna | Portfolio</title>
-    <meta name="description" content="Rakesh Nunna – B.Tech CSE student at KL University specializing in Multicloud Networking and Generative AI. View my projects, skills, and certifications.">
-    <meta name="keywords" content="Rakesh Nunna, Portfolio, Computer Science, Multicloud, Generative AI, KL University, Web Developer">
+    <title>Rakesh Nunna | Cloud Engineer & GenAI Developer</title>
+    <meta name="description" content="Rakesh Nunna — Cloud Engineer & GenAI Developer. B.Tech CSE student at KL University, Aviatrix Certified Engineer (ACE), Smart India Hackathon Team Lead. Open to internships in Cloud Computing and Software Development.">
+    <meta name="keywords" content="Rakesh Nunna, portfolio, cloud engineer, multicloud, AWS, GenAI, Aviatrix, KL University, React developer">
     <meta name="author" content="Rakesh Nunna">
 
-    <!-- Open Graph (for LinkedIn/WhatsApp sharing) -->
-    <meta property="og:title" content="Rakesh Nunna | Portfolio">
-    <meta property="og:description" content="B.Tech CSE student specializing in Multicloud Networking and Generative AI.">
+    <!-- Open Graph (for LinkedIn/WhatsApp share preview) -->
+    <meta property="og:title" content="Rakesh Nunna | Cloud Engineer & GenAI Developer">
+    <meta property="og:description" content="Aviatrix Certified Engineer & SIH Team Lead. B.Tech CSE at KL University. Open to internships in Cloud & Software Development.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://YOUR_WEBSITE_URL.com">
-    <meta property="og:image" content="https://YOUR_WEBSITE_URL.com/preview.png">
+    <meta property="og:url" content="https://rakesh32026.github.io/portfolio/">
+    <meta property="og:image" content="https://rakesh32026.github.io/portfolio/assets/images/og-preview.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rakesh Nunna | Cloud Engineer & GenAI Developer">
+    <meta name="twitter:description" content="Aviatrix ACE Certified. SIH Team Lead. B.Tech CSE student open to internships.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e40af'/><text x='50%' y='50%' font-family='Arial' font-size='13' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RN</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -22,6 +28,35 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-mode {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        body.light-mode .glass {
+            background: rgba(255, 255, 255, 0.78);
+            border-color: rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        body.light-mode [class*="bg-[#0f172a]"] {
+            background-color: #f8fafc !important;
+        }
+
+        body.light-mode .bg-white\/\[0\.01\],
+        body.light-mode .bg-blue-600\/5 {
+            background-color: rgba(15, 23, 42, 0.03) !important;
+        }
+
+        body.light-mode ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+
+        body.light-mode ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
         }
 
         .glass {
@@ -32,6 +67,7 @@
 
         .gradient-text {
             background: linear-gradient(90deg, #60a5fa, #a855f7);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -52,6 +88,56 @@
         }
         .nav-link:hover::after {
             width: 100%;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            margin-left: 2px;
+            animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+        }
+
+        section,
+        .card,
+        .project-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.2s ease;
+        }
+
+        section.reveal-visible,
+        .card.reveal-visible,
+        .project-card.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         @keyframes fadeInUp {
@@ -99,6 +185,7 @@
             <a href="#projects" class="nav-link hover:text-blue-400">Projects</a>
             <a href="#certifications" class="nav-link hover:text-blue-400">Certifications</a>
             <a href="#contact" class="nav-link hover:text-blue-400">Contact</a>
+            <button id="theme-toggle" aria-label="Toggle dark/light mode" style="background:none; border:none; cursor:pointer; font-size:18px; padding:4px 8px;">🌙</button>
         </div>
         <button class="md:hidden text-2xl" onclick="toggleMenu()">
             <i class="fa-solid fa-bars"></i>
@@ -127,12 +214,18 @@
                     <img src="https://ui-avatars.com/api/?name=Rakesh+Nunna&size=128&background=1e40af&color=fff&rounded=true" alt="Rakesh Nunna profile photo" class="w-full h-full rounded-full object-cover">
                 </div>
             </div>
-            <span class="px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-widest uppercase mb-6 inline-block">Computer Science Engineer</span>
+            <div style="display:inline-flex; align-items:center; gap:6px; background:#dcfce7; color:#166534; border:1px solid #bbf7d0; border-radius:999px; padding:4px 12px; font-size:13px; font-weight:500; margin-bottom:16px;">
+                <span style="width:8px; height:8px; background:#22c55e; border-radius:50%; display:inline-block; animation:pulse 2s infinite;"></span>
+                Open to Internships
+            </div>
+            <span class="px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-widest uppercase mb-6 inline-flex items-center gap-1">
+                <span id="typed-role"></span><span class="typing-cursor">|</span>
+            </span>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
                 Hi, I'm <span class="gradient-text">Rakesh Nunna</span>
             </h1>
             <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                A B.Tech student specializing in Computer Science with a passion for <span class="text-white font-medium">Multicloud Networking</span> and <span class="text-white font-medium">Generative AI</span>. Currently engineering the future at Koneru Lakshmaiah University.
+                A B.Tech student specializing in Computer Science with a passion for <span class="text-white font-medium">Multicloud Networking</span>, <span class="text-white font-medium">Generative AI</span>, and <span class="text-white font-medium">software and full-stack development</span>. Currently engineering the future at Koneru Lakshmaiah University.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#contact" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all">Get In Touch</a>
@@ -144,9 +237,36 @@
         </div>
 
         <div class="mt-20 flex gap-6 z-10">
-            <a href="https://github.com/rakesh32026" target="_blank" class="text-slate-400 hover:text-blue-400 text-2xl transition-colors"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rakesh-nunna-458428366" target="_blank" class="text-slate-400 hover:text-blue-400 text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/rakesh32026" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 text-2xl transition-colors"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rakesh-nunna-458428366" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
             <a href="mailto:nunnarakesh46@gmail.com" class="text-slate-400 hover:text-blue-400 text-2xl transition-colors"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 px-6 md:px-12 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">Achievements</h2>
+                <p class="text-slate-500">Highlights from academics, leadership, and certification milestones.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-2xl glass border border-white/5 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="text-3xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold mb-1">SIH Team Lead</h3>
+                    <p class="text-slate-500 text-sm">Smart India Hackathon</p>
+                </div>
+                <div class="card p-6 rounded-2xl glass border border-white/5 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="text-3xl mb-4">☁️</div>
+                    <h3 class="text-xl font-bold mb-1">Aviatrix ACE</h3>
+                    <p class="text-slate-500 text-sm">Multicloud Certified · Valid 2029</p>
+                </div>
+                <div class="card p-6 rounded-2xl glass border border-white/5 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="text-3xl mb-4">🎓</div>
+                    <h3 class="text-xl font-bold mb-1">8.93 CGPA</h3>
+                    <p class="text-slate-500 text-sm">KL University · Top Student</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -195,6 +315,15 @@
                             <p class="text-xs text-slate-500 mt-1">Percentage: 66.33%</p>
                         </div>
                     </div>
+                    <div style="margin-top: 24px;">
+                        <p style="font-size:13px; color:#6b7280; margin-bottom:8px;">GitHub Activity</p>
+                        <img
+                            src="https://ghchart.ssh.surf/rakesh32026"
+                            alt="Rakesh Nunna GitHub contribution graph"
+                            style="width:100%; border-radius:8px; opacity:0.9;"
+                            onerror="this.style.display='none'"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -208,50 +337,37 @@
                 <p class="text-slate-500">The technologies and tools I use to bring ideas to life.</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-brands fa-java text-4xl text-orange-500 mb-4"></i>
-                    <h4 class="font-semibold">Java</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card p-6 rounded-2xl glass border border-white/5">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 mb-4">Languages</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C Language</span>
+                    </div>
                 </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-solid fa-code text-4xl text-sky-400 mb-4"></i>
-                    <h4 class="font-semibold">C Language</h4>
+                <div class="card p-6 rounded-2xl glass border border-white/5">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 mb-4">Frontend</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
                 </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-brands fa-react text-4xl text-blue-400 mb-4"></i>
-                    <h4 class="font-semibold">React</h4>
+                <div class="card p-6 rounded-2xl glass border border-white/5">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 mb-4">Cloud &amp; DevOps</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Multicloud</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
                 </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-brands fa-js text-4xl text-yellow-400 mb-4"></i>
-                    <h4 class="font-semibold">JavaScript</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-solid fa-cloud text-4xl text-cyan-400 mb-4"></i>
-                    <h4 class="font-semibold">Multicloud</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-brands fa-aws text-4xl text-orange-400 mb-4"></i>
-                    <h4 class="font-semibold">AWS</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-solid fa-database text-4xl text-indigo-400 mb-4"></i>
-                    <h4 class="font-semibold">MySQL</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-brands fa-docker text-4xl text-cyan-300 mb-4"></i>
-                    <h4 class="font-semibold">Docker</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-solid fa-code-branch text-4xl text-slate-300 mb-4"></i>
-                    <h4 class="font-semibold">Git/GitHub</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-solid fa-brain text-4xl text-purple-400 mb-4"></i>
-                    <h4 class="font-semibold">DSA</h4>
-                </div>
-                <div class="skill-card p-6 rounded-2xl glass text-center border border-white/5">
-                    <i class="fa-solid fa-robot text-4xl text-green-400 mb-4"></i>
-                    <h4 class="font-semibold">Generative AI</h4>
+                <div class="card p-6 rounded-2xl glass border border-white/5">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 mb-4">Tools &amp; Concepts</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Generative AI</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -265,20 +381,20 @@
                     <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
                     <p class="text-slate-500">Selected work from academic and personal development.</p>
                 </div>
-                <a href="https://github.com/rakesh32026" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2">
+                <a href="https://github.com/rakesh32026" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2">
                     See all on GitHub <i class="fa-solid fa-arrow-right text-sm"></i>
                 </a>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="group p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all flex flex-col h-full">
+                <div class="project-card group p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all flex flex-col h-full">
                     <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-cart-shopping text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">AI Digital Shopping Platform</h3>
                     <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        A team project focused on designing an AI-based digital shopping platform exploring Generative AI concepts for personalized product recommendations.
+                        Building an AI-powered shopping platform with personalized product recommendations using Generative AI. I lead the frontend development using React, implementing the UI and integrating AI recommendation APIs as part of a 3-member team.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-2 py-1 rounded-md bg-white/5 text-[10px] text-slate-400 uppercase font-bold">GenAI</span>
@@ -294,13 +410,13 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group p-6 rounded-2xl glass border border-white/5 hover:border-purple-500/50 transition-all flex flex-col h-full">
+                <div class="project-card group p-6 rounded-2xl glass border border-white/5 hover:border-purple-500/50 transition-all flex flex-col h-full">
                     <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-notes-medical text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Virtual Care Connect</h3>
                     <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        Responsive web application for exploring virtual healthcare services. Features a clean UI and interactivity using vanilla JavaScript and CSS grid/flexbox.
+                        Designed and built a fully responsive virtual healthcare web app using vanilla JavaScript, CSS Grid, and Flexbox. Focused on clean UX with zero frameworks — showcasing core frontend fundamentals.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-2 py-1 rounded-md bg-white/5 text-[10px] text-slate-400 uppercase font-bold">JavaScript</span>
@@ -313,32 +429,32 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="group p-6 rounded-2xl glass border border-white/5 hover:border-green-500/50 transition-all flex flex-col h-full">
+                <div class="project-card group p-6 rounded-2xl glass border border-white/5 hover:border-green-500/50 transition-all flex flex-col h-full">
                     <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-clipboard-list text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Student Notes Manager</h3>
                     <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        A CRUD-based application for managing student notes with browser LocalStorage persistence. Focused on simplicity and performance.
+                        Built a lightweight CRUD notes app with full Create, Read, Update, Delete functionality. Uses browser LocalStorage for persistence — no backend required. Optimized for fast load and minimal footprint.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-2 py-1 rounded-md bg-white/5 text-[10px] text-slate-400 uppercase font-bold">CRUD</span>
                         <span class="px-2 py-1 rounded-md bg-white/5 text-[10px] text-slate-400 uppercase font-bold">Storage</span>
                         <span class="px-2 py-1 rounded-md bg-white/5 text-[10px] text-slate-400 uppercase font-bold">Efficiency</span>
                     </div>
-                    <a href="#" class="text-green-400 text-sm font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                    <a href="https://github.com/rakesh32026" target="_blank" rel="noopener noreferrer" class="text-green-400 text-sm font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                         View Code <i class="fa-solid fa-code"></i>
                     </a>
                 </div>
 
                 <!-- Project 4 -->
-                <a href="https://homeplusmy.vercel.app/" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl glass border border-white/5 hover:border-cyan-500/50 transition-all flex flex-col h-full">
+                <a href="https://homeplusmy.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card group p-6 rounded-2xl glass border border-white/5 hover:border-cyan-500/50 transition-all flex flex-col h-full">
                     <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-house text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">HomePlus</h3>
                     <p class="text-slate-400 text-sm mb-6 flex-grow">
-                        HomePlus is an interior design web application built to help users explore and visualize modern home design ideas with a clean, intuitive experience. The platform is structured for fast browsing and responsive interactions, making it easy to discover inspiration and design directions across devices.
+                        Architected and shipped a full-stack interior design inspiration platform using Next.js and Tailwind CSS. Deployed on Vercel with responsive design, fast page loads, and a component-based React architecture.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-2 py-1 rounded-md bg-white/5 text-[10px] text-slate-400 uppercase font-bold">React / Next.js</span>
@@ -363,7 +479,7 @@
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- AVIATRIX -->
-                <div class="p-8 rounded-2xl glass border border-blue-500/20 flex flex-col md:flex-row gap-6 items-center">
+                <div class="card p-8 rounded-2xl glass border border-blue-500/20 flex flex-col md:flex-row gap-6 items-center">
                     <div class="w-32 h-32 flex-shrink-0 bg-slate-900/70 rounded-xl p-2 flex items-center justify-center border border-white/10">
                         <img src="assets/images/aviatrix-logo.png" alt="Aviatrix logo" class="w-full h-full object-contain">
                     </div>
@@ -384,7 +500,7 @@
                 </div>
 
                 <!-- Google Gen AI -->
-                <div class="p-8 rounded-2xl glass border border-white/5 flex flex-col md:flex-row gap-6 items-center">
+                <div class="card p-8 rounded-2xl glass border border-white/5 flex flex-col md:flex-row gap-6 items-center">
                     <div class="w-32 h-32 flex-shrink-0 bg-slate-800/50 rounded-xl flex items-center justify-center text-4xl text-google-blue">
                         <i class="fa-brands fa-google text-blue-400"></i>
                     </div>
@@ -402,7 +518,7 @@
                 </div>
 
                 <!-- Agentic AI Boot Camp -->
-                <div class="p-8 rounded-2xl glass border border-yellow-500/20 flex flex-col md:flex-row gap-6 items-center">
+                <div class="card p-8 rounded-2xl glass border border-yellow-500/20 flex flex-col md:flex-row gap-6 items-center">
                     <div class="w-32 h-32 flex-shrink-0 bg-slate-800/50 rounded-xl flex items-center justify-center text-4xl text-yellow-400">
                         <i class="fa-solid fa-certificate"></i>
                     </div>
@@ -449,17 +565,17 @@
             </p>
             
             <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <a href="mailto:nunnarakesh46@gmail.com" class="p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all">
+                <a href="mailto:nunnarakesh46@gmail.com" class="card p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all">
                     <i class="fa-solid fa-envelope text-3xl text-blue-400 mb-4"></i>
                     <div class="font-bold">Email</div>
                     <div class="text-xs text-slate-500 mt-1">nunnarakesh46@gmail.com</div>
                 </a>
-                <a href="https://www.linkedin.com/in/rakesh-nunna-458428366" target="_blank" class="p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all">
+                <a href="https://www.linkedin.com/in/rakesh-nunna-458428366" target="_blank" rel="noopener noreferrer" class="card p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all">
                     <i class="fa-brands fa-linkedin text-3xl text-blue-400 mb-4"></i>
                     <div class="font-bold">LinkedIn</div>
                     <div class="text-xs text-slate-500 mt-1">@rakesh-nunna</div>
                 </a>
-                <a href="tel:+919912461340" class="p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all">
+                <a href="tel:+919912461340" class="card p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/50 transition-all">
                     <i class="fa-solid fa-phone text-3xl text-blue-400 mb-4"></i>
                     <div class="font-bold">Phone</div>
                     <div class="text-xs text-slate-500 mt-1">+91 99124 61340</div>
@@ -517,6 +633,68 @@
             menu.classList.toggle('flex');
         }
 
+        const themeToggle = document.getElementById('theme-toggle');
+        const roles = ['Cloud Engineer', 'GenAI Developer', 'Software Developer', 'Full Stack Developer', 'SIH Team Lead'];
+        const typedRole = document.getElementById('typed-role');
+
+        function applyTheme(theme) {
+            document.body.classList.toggle('light-mode', theme === 'light');
+            if (themeToggle) {
+                themeToggle.textContent = theme === 'light' ? '☀️' : '🌙';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+                localStorage.setItem('theme', nextTheme);
+                applyTheme(nextTheme);
+            });
+        }
+
+        let roleIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
+
+        function typeRole() {
+            if (!typedRole) {
+                return;
+            }
+
+            const currentRole = roles[roleIndex];
+
+            if (deleting) {
+                characterIndex -= 1;
+                typedRole.textContent = currentRole.slice(0, characterIndex);
+
+                if (characterIndex === 0) {
+                    deleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeRole, 300);
+                    return;
+                }
+
+                setTimeout(typeRole, 80);
+                return;
+            }
+
+            characterIndex += 1;
+            typedRole.textContent = currentRole.slice(0, characterIndex);
+
+            if (characterIndex === currentRole.length) {
+                deleting = true;
+                setTimeout(typeRole, 1500);
+                return;
+            }
+
+            setTimeout(typeRole, 110);
+        }
+
+        setTimeout(typeRole, 300);
+
         async function sendMessage() {
             const btn = document.querySelector('#contact-form button');
             const name = document.querySelector('#contact-form input[type="text"]').value;
@@ -556,11 +734,30 @@
             document.getElementById('modal').classList.add('hidden');
         }
 
+        const revealTargets = document.querySelectorAll('section, .card, .project-card');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+
+            revealTargets.forEach((target) => observer.observe(target));
+        } else {
+            revealTargets.forEach((target) => target.classList.add('reveal-visible'));
+        }
+
         // Active link on scroll
-        window.addEventListener('scroll', () => {
+        const updateActiveNavLink = () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -575,7 +772,13 @@
                     link.classList.add('text-blue-400');
                 }
             });
+        };
+
+        window.addEventListener('scroll', () => {
+            updateActiveNavLink();
         });
+
+        updateActiveNavLink();
     </script>
 </body>
 </html>
